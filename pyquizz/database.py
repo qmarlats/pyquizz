@@ -25,9 +25,12 @@ class Database(object):
         self.db = SqliteExtDatabase('%s.db' % db)
 
     def connect(self):
+        """Connect to the database object."""
         self.db.connect()
 
     def create(self):
+        """Create the database: create the file and the database tables."""
         self.db.create_tables([models.Music, models.Answer])
 
-    def populate(self)
+    def populate(self, model, args):
+        model.create(args)
