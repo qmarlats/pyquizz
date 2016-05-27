@@ -20,8 +20,13 @@ def test_music():
 def test_db():
     db = Database('pyquizz')
     db.connect()
-    db.create()
-    db.populate(db.models.Music, "identifier=ad3c25fec78032469a6af9f6a038562cc1711672")
+    # db.create(force=True)
+    # db.populate("categories")
+    # db.populate("musics")
+    import models
+    categories = models.Category.select()
+    for category in categories:
+        print(category.name)
 
 if __name__ == '__main__':
     # code if script is executed by user (and not imported from another file)

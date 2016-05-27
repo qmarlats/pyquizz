@@ -37,12 +37,18 @@ class Database(object):
 
         """
         if not os.path.isfile(self.db.database) or force == True:
-            self.db.create_tables([models.Music, models.Answer])
+            self.db.create_tables([models.Category, models.Music])
         else:
             if verbose:
                 print("The specified database already exists")
 
-    def populate(self, what, model = None):
-        if what == "category":
-            csv_data = populate.get_csv("categories")
-            models.Category(*csv_data)
+    def populate(self, what):
+        if what == "categories":
+            csv_data = populate.get_csv_data("categories")
+            for data in csv_data:
+                models.Category.create(name=data[0])
+        if what == "musics":
+            csv_data_files = populate.get_csv_data("musics", 5)
+            for csv_data in csv_data_files:
+                for data in csv_data:
+                    models.Music.create(name=data[0], category=data[1])
