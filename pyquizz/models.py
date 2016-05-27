@@ -11,10 +11,9 @@
 
 from peewee import *
 
-class Music(Model):
-    identifier = CharField(max_length=40, unique=True)
+class Category(Model):
+    name = CharField(max_length=50, unique=True)
 
-class Answer(Model):
-    value = CharField(max_length=100)
-    is_right_answer = BooleanField()
-    music = ForeignKeyField(Music, related_name='answers')
+class Music(Model):
+    name = CharField(max_length=40, unique=True)
+    category = ForeignKeyField(Category, related_name='musics')
