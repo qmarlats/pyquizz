@@ -9,25 +9,31 @@
 
 """
 
-from music import Music
-from database import Database
+# from music import Music
+# from database import Database
 
-def test_music():
-    music = Music("6e759f6da358f4a36421af5006c5dbcd6ccabbdb")
-    print(music.is_exists())
-    music.play()
+import menus
 
-def test_db():
-    db = Database('pyquizz')
-    db.connect()
-    # db.create(force=True)
-    # db.populate("categories")
-    # db.populate("musics")
-    import models
-    categories = models.Category.select()
-    for category in categories:
-        print(category.name)
+def main():
+    menus.main_menu()
+
+# def test_music():
+#     import models
+#     music = Music(models.Music.get(id = 16))
+#     print(music.is_exists())
+#     music.play()
+#
+# def test_db():
+#     db = Database('pyquizz')
+#     db.connect()
+#     # db.create(force=True)
+#     # db.populate("categories")
+#     # db.populate("musics")
+#     import models
+#     categories = models.Category.select()
+#     for category in categories:
+#         print(category.name)
 
 if __name__ == '__main__':
     # code if script is executed by user (and not imported from another file)
-    test_db()
+    main()

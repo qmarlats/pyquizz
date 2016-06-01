@@ -30,7 +30,7 @@ class Music(object):
 
         """
 
-        return os.path.isfile("sounds/%s.wav" % self.music)
+        return os.path.isfile("sounds/%s.wav" % self.music.name)
 
     def play(self):
         """Play a music.
@@ -41,7 +41,7 @@ class Music(object):
 
         try:
             # Open music file
-            wave_file = wave.open("sounds/%s.wav" % self.music, 'rb')
+            wave_file = wave.open("sounds/%s.wav" % self.music.name, 'rb')
 
             # Create variables
             audio_data = wave_file.readframes(wave_file.getnframes())
@@ -53,6 +53,6 @@ class Music(object):
             # Play music
             music.wait_done()
         except (KeyboardInterrupt):
-            print("Music stopped by user")
+            print("Music stopped by user.")
         except:
-            print("An error has occurred while trying to play music")
+            print("An error has occurred while trying to play music.")
