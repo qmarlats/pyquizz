@@ -48,7 +48,7 @@ class Database(object):
             for data in csv_data:
                 models.Category.create(name=data[0])
         if what == "musics":
-            csv_data_files = populate.get_csv_data("musics", 5)
+            csv_data_files = populate.get_csv_data("musics", 7)
             for csv_data in csv_data_files:
                 for data in csv_data:
                     models.Music.create(name=data[0], category=data[1])

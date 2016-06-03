@@ -54,5 +54,7 @@ class Music(object):
             music.wait_done()
         except (KeyboardInterrupt):
             print("Music stopped by user.")
+            # Stop music when pressing "Ctrl-C"
+            music.stop()
         except:
             print("An error has occurred while trying to play music.")

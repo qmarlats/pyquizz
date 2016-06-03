@@ -1,4 +1,5 @@
 from database import models
+import play
 
 def main_menu():
     print("Bonjour nous allons jouer ensemble a un blindtest.\nLe but du jeu sera sera de trouver le titre de la musique écoutée.\n")
@@ -43,20 +44,8 @@ def category_menu():
             category_input = 0
             print("Veuillez entrer un nombre.")
 
-        if category_input == 1:
-            print ("fontion avec pop")
-        elif category_input == 2:
-            print("fonction rock")
-        elif category_input == 3:
-            print("fonctionannée 80")
-        elif category_input == 4:
-            print("fonctionvariétées")
-        elif category_input == 5:
-            print("fonction electro")
-        elif category_input == 6:
-            print("fonction metal")
-        elif category_input == 7:
-            print("fonction metal suédois")
+        if category_input >= 1 and category_input <= 7:
+            play.play(category_input)
         else:
             print("Ce choix n'existe pas.")
 

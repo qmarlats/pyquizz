@@ -10,7 +10,7 @@
 """
 
 # from music import Music
-# from database import Database
+from database import Database
 
 import menus
 
@@ -23,16 +23,13 @@ def main():
 #     print(music.is_exists())
 #     music.play()
 #
-# def test_db():
+
+# def populate_db():
 #     db = Database('pyquizz')
 #     db.connect()
-#     # db.create(force=True)
-#     # db.populate("categories")
-#     # db.populate("musics")
-#     import models
-#     categories = models.Category.select()
-#     for category in categories:
-#         print(category.name)
+#     db.create(force=True)
+#     db.populate("categories")
+#     db.populate("musics")
 
 if __name__ == '__main__':
     # code if script is executed by user (and not imported from another file)
