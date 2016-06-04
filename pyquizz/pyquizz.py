@@ -5,32 +5,30 @@
    :platform: Linux, Windows
    :synopsis: Pyquizz project main file
 
-.. moduleauthor:: Quentin Marlats <quentin.marlats@qmarlats.com>
+.. moduleauthor:: Quentin Marlats
 
 """
 
-# from music import Music
-from database import Database
+from game.menus import main
 
-import menus
+def pyquizz():
+    """Pyquizz project main function."""
 
-def main():
-    menus.main_menu()
+    # Show main menu
+    main()
 
-# def test_music():
-#     import models
-#     music = Music(models.Music.get(id = 16))
-#     print(music.is_exists())
-#     music.play()
-#
+def populate_db():
+    """Create database if not exists. To use, replace the pyquizz() function with this one in if __name__ == '__main__'"""
 
-# def populate_db():
-#     db = Database('pyquizz')
-#     db.connect()
-#     db.create(force=True)
-#     db.populate("categories")
-#     db.populate("musics")
+    from pyquizz import settings
+    from database import database
+
+    db = database.Database(settings.DB_NAME)
+    db.connect()
+    db.create(force=True)
+    db.populate("categories")
+    db.populate("musics")
 
 if __name__ == '__main__':
-    # code if script is executed by user (and not imported from another file)
-    main()
+    # Executed when executing poject from terminal
+    pyquizz()

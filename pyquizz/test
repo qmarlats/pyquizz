@@ -1,0 +1,12 @@
+# def test_music():
+#     import models
+#     music = Music(models.Music.get(id = 16))
+#     print(music.is_exists())
+#     music.play()
+
+# def populate_db():
+#     db = Database('pyquizz')
+#     db.connect()
+#     db.create(force=True)
+#     db.populate("categories")
+#     db.populate("musics")

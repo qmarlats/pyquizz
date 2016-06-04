@@ -10,6 +10,7 @@
 """
 
 import os, wave, simpleaudio
+from pyquizz import settings
 
 class Music(object):
     def __init__(self, music):
@@ -30,7 +31,7 @@ class Music(object):
 
         """
 
-        return os.path.isfile("sounds/%s.wav" % self.music.name)
+        return os.path.isfile("%s/%s.wav" % (settings.MUSICS_DIR, self.music.name))
 
     def play(self):
         """Play a music.
@@ -41,7 +42,7 @@ class Music(object):
 
         try:
             # Open music file
-            wave_file = wave.open("sounds/%s.wav" % self.music.name, 'rb')
+            wave_file = wave.open("%s/%s.wav" % (settings.MUSICS_DIR, self.music.name), 'rb')
 
             # Create variables
             audio_data = wave_file.readframes(wave_file.getnframes())
@@ -53,8 +54,8 @@ class Music(object):
             # Play music
             music.wait_done()
         except (KeyboardInterrupt):
-            print("Music stopped by user.")
+            print("Musique arrêtée par l'utilisateur.")
             # Stop music when pressing "Ctrl-C"
             music.stop()
         except:
-            print("An error has occurred while trying to play music.")
+            print("Impossible de lire la musique.")
