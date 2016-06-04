@@ -24,7 +24,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   Chapter1 description <chapter1>
+   pyquizz.rst
 
 
 

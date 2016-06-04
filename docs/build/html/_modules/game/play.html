@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>game.play &mdash; PyQuizz 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="PyQuizz 0.1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PyQuizz
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pyquizz.html">pyquizz package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">PyQuizz</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>game.play</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for game.play</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: pyquizz</span>
+<span class="sd">   :platform: Linux, Windows</span>
+<span class="sd">   :synopsis: Functions to play blindtest itself</span>
+
+<span class="sd">.. moduleauthor:: Quentin Marlats, Pierre Daudey</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="kn">from</span> <span class="nn">pyquizz</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">utils.numbers</span> <span class="kn">import</span> <span class="n">reduce_id</span>
+<span class="kn">from</span> <span class="nn">database.models</span> <span class="kn">import</span> <span class="n">Category</span>
+<span class="kn">from</span> <span class="nn">game.music</span> <span class="kn">import</span> <span class="n">Music</span>
+<span class="kn">from</span> <span class="nn">game.thanks</span> <span class="kn">import</span> <span class="n">thanks</span>
+<span class="kn">from</span> <span class="nn">game.score</span> <span class="kn">import</span> <span class="n">Score</span>
+
+<div class="viewcode-block" id="play"><a class="viewcode-back" href="../../pyquizz.html#game.play.play">[docs]</a><span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="n">category</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot; Play the blindtest itself, save and show score and ask a rating for the project.&quot;&quot;&quot;</span>
+
+	<span class="c1"># Get Category</span>
+	<span class="k">try</span><span class="p">:</span>
+		<span class="n">category</span> <span class="o">=</span> <span class="n">Category</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">category</span><span class="p">)</span>
+	<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Impossible de récupérer la catégorie dans la base de données.&quot;</span><span class="p">)</span>
+
+	<span class="c1"># Execute rest of code only if category exists</span>
+	<span class="k">if</span> <span class="n">category</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+		<span class="c1"># Convert musics from this category to a list</span>
+		<span class="n">musics</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">category</span><span class="o">.</span><span class="n">musics</span><span class="p">)</span>
+		<span class="c1"># Generate a shuffled list</span>
+		<span class="n">shuffled_musics</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">musics</span><span class="p">)</span>
+		<span class="n">shuffle</span><span class="p">(</span><span class="n">shuffled_musics</span><span class="p">)</span>
+
+		<span class="c1"># Initialize score</span>
+		<span class="n">points</span> <span class="o">=</span> <span class="mi">0</span>
+
+		<span class="c1"># Generate a string with the non-shuffled list of musics</span>
+		<span class="n">musics_list</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+		<span class="k">for</span> <span class="n">music</span> <span class="ow">in</span> <span class="n">musics</span><span class="p">:</span>
+			<span class="n">musics_list</span> <span class="o">=</span> <span class="n">musics_list</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t</span><span class="si">%i</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">reduce_id</span><span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">id</span><span class="p">),</span> <span class="n">music</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+		<span class="c1"># Play musics one by one and ask user what music is it</span>
+		<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">music</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shuffled_musics</span><span class="p">):</span>
+			<span class="c1"># Define the right answer</span>
+			<span class="n">answer</span> <span class="o">=</span> <span class="n">reduce_id</span><span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+			<span class="c1"># Initialize user_input</span>
+			<span class="n">user_input</span> <span class="o">=</span> <span class="bp">None</span>
+
+			<span class="c1"># Show answers list</span>
+			<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Propositions :</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">musics_list</span><span class="p">)</span>
+
+			<span class="c1"># Play music</span>
+			<span class="n">music_to_play</span> <span class="o">=</span> <span class="n">Music</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+
+			<span class="c1"># Execute code only if the music exists</span>
+			<span class="k">if</span> <span class="n">music_to_play</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+				<span class="k">if</span> <span class="n">music_to_play</span><span class="o">.</span><span class="n">is_exists</span><span class="p">():</span>
+					<span class="n">music_to_play</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+
+				<span class="c1"># Ask user for the answer</span>
+				<span class="k">while</span> <span class="n">user_input</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+					<span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Votre réponse : &quot;</span><span class="p">)</span>
+					<span class="k">try</span><span class="p">:</span>
+						<span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+					<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+						<span class="k">print</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="s1">&#39;NOT_A_NUMBER&#39;</span><span class="p">])</span>
+
+					<span class="k">if</span> <span class="n">user_input</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+						<span class="k">if</span> <span class="n">user_input</span> <span class="o">==</span> <span class="n">answer</span><span class="p">:</span>
+							<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Votre réponse était JUSTE.&quot;</span><span class="p">)</span>
+							<span class="n">points</span> <span class="o">=</span> <span class="n">points</span> <span class="o">+</span> <span class="mi">1</span>
+						<span class="k">else</span><span class="p">:</span>
+							<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Votre réponse était FAUSSE.&quot;</span><span class="p">)</span>
+					<span class="k">else</span><span class="p">:</span>
+						<span class="n">user_input</span> <span class="o">=</span> <span class="bp">None</span>
+						<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Veuillez entrer un nombre entre 1 et 10.&quot;</span><span class="p">)</span>
+
+		<span class="c1"># Save and show score</span>
+		<span class="n">score</span> <span class="o">=</span> <span class="n">Score</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+		<span class="n">score</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+		<span class="n">score</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+		<span class="c1"># Ask for a rating</span>
+		<span class="n">thanks</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Quentin Marlats.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

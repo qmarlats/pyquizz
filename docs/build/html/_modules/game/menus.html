@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>game.menus &mdash; PyQuizz 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="PyQuizz 0.1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PyQuizz
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pyquizz.html">pyquizz package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">PyQuizz</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>game.menus</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for game.menus</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: menus</span>
+<span class="sd">   :platform: Linux, Windows</span>
+<span class="sd">   :synopsis: Allows users to choose what they want to do with menus</span>
+
+<span class="sd">.. moduleauthor:: Quentin Marlats, Pierre Daudey, Louis Lhosmot, Maxime Cecchini, Benjamin Mitifiot, Charly Adam</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">pyquizz</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">game</span> <span class="kn">import</span> <span class="n">play</span>
+<span class="kn">from</span> <span class="nn">database.models</span> <span class="kn">import</span> <span class="n">Category</span><span class="p">,</span> <span class="n">Score</span>
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../pyquizz.html#game.menus.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Main menu; allows to play game, show scores, show rules or leave game.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Define user_input to enter the loop</span>
+    <span class="n">user_input</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Bonjour nous allons jouer ensemble a un blindtest.</span><span class="se">\n</span><span class="s2">Le but du jeu sera sera de trouver le titre de la musique écoutée.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;1 Jouer maintenant</span><span class="se">\n</span><span class="s2">2 Voir les scores</span><span class="se">\n</span><span class="s2">3 Règles du jeu</span><span class="se">\n</span><span class="s2">4 Quitter</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">user_input</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Choisissez une option : &quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="s1">&#39;NOT_A_NUMBER&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">user_input</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">category</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">user_input</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">show_scores</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">user_input</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">show_rules</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">user_input</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="nb">exit</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">user_input</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="s1">&#39;CHOICE_NOT_EXISTS&#39;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="category"><a class="viewcode-back" href="../../pyquizz.html#game.menus.category">[docs]</a><span class="k">def</span> <span class="nf">category</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Menu to choose the music gnere we want to listen to.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Define user_input to enter the loop</span>
+    <span class="n">user_input</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="c1"># Get all categories in database</span>
+    <span class="n">categories</span> <span class="o">=</span> <span class="n">Category</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+
+    <span class="c1"># Show all categories available</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Styles de musique disponibles :&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">%i</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">category</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">category</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+    <span class="k">while</span> <span class="n">user_input</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Choisisez maintenant votre style : &quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="s1">&#39;NOT_A_NUMBER&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">user_input</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">play</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">user_input</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="s1">&#39;CHOICE_NOT_EXISTS&#39;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="show_scores"><a class="viewcode-back" href="../../pyquizz.html#game.menus.show_scores">[docs]</a><span class="k">def</span> <span class="nf">show_scores</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Display all scores of specified name&quot;&quot;&quot;</span>
+
+    <span class="n">user_input</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">while</span> <span class="n">user_input</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Votre nom : &quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">:</span>
+            <span class="n">scores</span> <span class="o">=</span> <span class="bp">None</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">scores</span> <span class="o">=</span> <span class="n">Score</span><span class="p">()</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">user_input</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Impossible de récupérer les scores dans la base de données.&quot;</span><span class="p">)</span>
+                <span class="n">scores</span> <span class="o">=</span> <span class="n">Score</span><span class="p">()</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Score</span><span class="o">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="n">user_input</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="n">scores</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> : </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">score</span><span class="o">.</span><span class="n">created_at</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Le </span><span class="si">%d</span><span class="s2">/%m/%Y à %H:%M:%S&quot;</span><span class="p">),</span> <span class="n">score</span><span class="o">.</span><span class="n">score</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Aucun score ne correspond à votre recherche.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">user_input</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Veuillez entrer un nom valide.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="show_rules"><a class="viewcode-back" href="../../pyquizz.html#game.menus.show_rules">[docs]</a><span class="k">def</span> <span class="nf">show_rules</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Diplay rules saved in &quot;rules&quot; file.&quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Open file and close it even if an error occurs</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/rules&quot;</span> <span class="o">%</span> <span class="n">settings</span><span class="o">.</span><span class="n">STATIC_DIR</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">rules</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">rule</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rules</span><span class="p">):</span>
+                <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">rule</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">rule</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="s1">&#39;CANT_OPEN_FILE&#39;</span><span class="p">])</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Quentin Marlats.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

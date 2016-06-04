@@ -9,7 +9,7 @@ MUSICS_DIR = os.path.join(STATIC_DIR, 'musics')
 # Database settings
 DB_NAME = "pyquizz"
 
-# Define repeated error messages
+# Define most used error messages
 errors = {
     'NOT_A_NUMBER': "Veuillez entrer un nombre.",
     'CHOICE_NOT_EXISTS': "Ce choix n'existe pas.",

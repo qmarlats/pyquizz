@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pyquizz &mdash; PyQuizz 0.1.0 documentation</title>
+  <title>utils.numbers &mdash; PyQuizz 0.1.0 documentation</title>
   
 
   
@@ -24,17 +24,17 @@
 
   
   
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
-    <link rel="top" title="PyQuizz 0.1.0 documentation" href="../index.html"/>
-        <link rel="up" title="Module code" href="index.html"/> 
+    <link rel="top" title="PyQuizz 0.1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
 
   
-  <script src="../_static/js/modernizr.min.js"></script>
+  <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> PyQuizz
+            <a href="../../index.html" class="icon icon-home"> PyQuizz
           
 
           
@@ -66,7 +66,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -80,7 +80,8 @@
           
             
             
-                <ul class="simple">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pyquizz.html">pyquizz package</a></li>
 </ul>
 
             
@@ -94,7 +95,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">PyQuizz</a>
+        <a href="../../index.html">PyQuizz</a>
       </nav>
 
 
@@ -109,11 +110,11 @@
 
 <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="index.html">Module code</a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
       
-    <li>pyquizz</li>
+    <li>utils.numbers</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -125,19 +126,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for pyquizz</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;PyQuizz - Python blind test&quot;&quot;&quot;</span>
+  <h1>Source code for utils.numbers</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: numbers</span>
+<span class="sd">   :platform: Linux, Windows</span>
+<span class="sd">   :synopsis: Utilities for numbers</span>
 
-<span class="kn">from</span> <span class="nn">music</span> <span class="kn">import</span> <span class="n">Music</span>
+<span class="sd">.. moduleauthor:: Quentin Marlats</span>
 
-<div class="viewcode-block" id="test"><a class="viewcode-back" href="../pyquizz.html#pyquizz.test">[docs]</a><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
-    <span class="n">music</span> <span class="o">=</span> <span class="n">Music</span><span class="p">(</span><span class="s2">&quot;6e759f6da358f4a36421af5006c5dbcd6ccabbdb&quot;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">is_exists</span><span class="p">())</span>
-    <span class="n">music</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></div>
+<span class="sd">&quot;&quot;&quot;</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="c1"># code if script is executed by user (and not imported from another file)</span>
-    <span class="n">test</span><span class="p">()</span>
+<div class="viewcode-block" id="reduce_id"><a class="viewcode-back" href="../../pyquizz.html#utils.numbers.reduce_id">[docs]</a><span class="k">def</span> <span class="nf">reduce_id</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Reduce ID to make it one digit number</span>
+
+<span class="sd">    :param number: ID to reduce</span>
+<span class="sd">    :type number: int</span>
+<span class="sd">    :returns: reduced number</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">((</span><span class="n">number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span></div>
 </pre></div>
 
            </div>
@@ -170,22 +178,22 @@
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
+            URL_ROOT:'../../',
             VERSION:'0.1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
         };
     </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
   

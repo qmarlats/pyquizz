@@ -24,7 +24,6 @@ def thanks():
 		try:
 			user_input = int(user_input)
 		except ValueError:
-			user_input = -1
 			print(settings.errors['NOT_A_NUMBER'])
 
 		if user_input in range(0,6):
