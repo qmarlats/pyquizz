@@ -1,0 +1,6 @@
+{
+  "name": "Pyquizz",
+  "tagline": "Blind Test écrit en Python",
+  "body": "# Dependencies\r\n\r\nPyQuizz uses `simpleaudio` to play music, so you need this package (`pip install simpleaudio`) and its dependancies ([see here](http://simpleaudio.readthedocs.io/en/latest/installation.html)):\r\n\r\n* Python3 and its development packages\r\n* ALSA and its development packages\r\n\r\n\r\n# Limitations\r\n\r\nLimitations are the same as `simpleaudio` ([see here](http://simpleaudio.readthedocs.io/en/latest/capabilities.html)), so PyQuizz can only read:\r\n\r\n* WAV files\r\n* 1 or 2 channels (mono or stereo)\r\n* 8, 11.025, 16, 22.05, 32, 44.1, 48, 88.2, 96, or 192 kHz\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
