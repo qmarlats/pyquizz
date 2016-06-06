@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>database.database &mdash; PyQuizz 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="PyQuizz 0.1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PyQuizz
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pyquizz.html">pyquizz package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">PyQuizz</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>database.database</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for database.database</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: database</span>
+<span class="sd">   :platform: Linux, Windows</span>
+<span class="sd">   :synopsis: Database connector using Peewee module.</span>
+
+<span class="sd">.. moduleauthor:: Quentin Marlats</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pyquizz</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">database</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">csv</span>
+<span class="kn">from</span> <span class="nn">playhouse.sqlite_ext</span> <span class="kn">import</span> <span class="n">SqliteExtDatabase</span>
+<span class="kn">from</span> <span class="nn">peewee</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="Database"><a class="viewcode-back" href="../../pyquizz.html#database.database.Database">[docs]</a><span class="k">class</span> <span class="nc">Database</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">database</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Create a Database object.</span>
+
+<span class="sd">		:param database: database file name</span>
+<span class="sd">		:type database: str</span>
+<span class="sd">		:returns:  Database</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">database</span> <span class="o">=</span> <span class="n">SqliteExtDatabase</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.db&#39;</span> <span class="o">%</span> <span class="n">database</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="n">models</span>
+
+<div class="viewcode-block" id="Database.create"><a class="viewcode-back" href="../../pyquizz.html#database.database.Database.create">[docs]</a>	<span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Create the database: create the file and the database tables.</span>
+
+<span class="sd">		:param force: force the creation of a database even if another with the same name already exists</span>
+<span class="sd">		:type db: bool</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">database</span><span class="p">)</span> <span class="ow">or</span> <span class="n">force</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span> <span class="c1"># self.database.database corresponds to the database file</span>
+			<span class="k">try</span><span class="p">:</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">create_tables</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Category</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Music</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Rating</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Score</span><span class="p">])</span>
+			<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+				<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Une erreur est survenue lors de la création de la base de données.&quot;</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+				<span class="k">print</span><span class="p">(</span><span class="s2">&quot;La base de données existe déjà.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Database.connect"><a class="viewcode-back" href="../../pyquizz.html#database.database.Database.connect">[docs]</a>	<span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Connect to the database.&quot;&quot;&quot;</span>
+
+		<span class="k">try</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+		<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Une erreur est survenue lors de la connexion à la base de données.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Database.populate"><a class="viewcode-back" href="../../pyquizz.html#database.database.Database.populate">[docs]</a>	<span class="k">def</span> <span class="nf">populate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">what</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot; Populate database with CSV files&quot;&quot;&quot;</span>
+
+		<span class="k">if</span> <span class="n">what</span> <span class="o">==</span> <span class="s2">&quot;categories&quot;</span><span class="p">:</span>
+			<span class="n">csv_data</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">get_csv_data</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/categories&quot;</span> <span class="o">%</span> <span class="n">settings</span><span class="o">.</span><span class="n">POPULATE_FILES_DIR</span><span class="p">)</span>
+			<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">csv_data</span><span class="p">:</span>
+				<span class="k">try</span><span class="p">:</span>
+					<span class="n">models</span><span class="o">.</span><span class="n">Category</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+				<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+					<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Une erreur est survenue lors du remplissage de la base de données.&quot;</span><span class="p">)</span>
+		<span class="k">elif</span> <span class="n">what</span> <span class="o">==</span> <span class="s2">&quot;musics&quot;</span><span class="p">:</span>
+			<span class="n">csv_data_files</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">get_csv_data</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/musics&quot;</span> <span class="o">%</span> <span class="n">settings</span><span class="o">.</span><span class="n">POPULATE_FILES_DIR</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="c1"># Hardcoded number of musics CSV file should be fixed</span>
+			<span class="k">for</span> <span class="n">csv_data</span> <span class="ow">in</span> <span class="n">csv_data_files</span><span class="p">:</span>
+				<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">csv_data</span><span class="p">:</span>
+					<span class="k">try</span><span class="p">:</span>
+						<span class="n">models</span><span class="o">.</span><span class="n">Music</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">category</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+					<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+						<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Une erreur est survenue lors du remplissage de la base de données.&quot;</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Quentin Marlats.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
