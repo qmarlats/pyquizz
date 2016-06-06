@@ -145,10 +145,10 @@
 	<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Remerciements à toute l&#39;équipe qui à contribuée à ce projet ainsi qu&#39;à notre professeur M. Bachard.&quot;</span><span class="p">)</span>
 
 	<span class="c1"># Initialize user_input</span>
-	<span class="n">user_input</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+	<span class="n">user_input</span> <span class="o">=</span> <span class="bp">None</span>
 
 	<span class="c1"># Ask for a rating</span>
-	<span class="k">while</span> <span class="n">user_input</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+	<span class="k">while</span> <span class="n">user_input</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
 		<span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Votre avis nous intéresse, donnez-nous une note entre 0 et 5 svp : &quot;</span><span class="p">)</span>
 		<span class="k">try</span><span class="p">:</span>
 			<span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
@@ -161,7 +161,7 @@
 			<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
 				<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Impossible d&#39;enregistrer la note.&quot;</span><span class="p">)</span>
 		<span class="k">else</span><span class="p">:</span>
-			<span class="n">user_input</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+			<span class="n">user_input</span> <span class="o">=</span> <span class="bp">None</span>
 			<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Veuillez entrer une note comprise entre 0 et 5.&quot;</span><span class="p">)</span></div>
 </pre></div>
 

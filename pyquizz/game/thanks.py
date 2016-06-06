@@ -16,10 +16,10 @@ def thanks():
 	print ("Remerciements à toute l'équipe qui à contribuée à ce projet ainsi qu'à notre professeur M. Bachard.")
 
 	# Initialize user_input
-	user_input = -1
+	user_input = None
 
 	# Ask for a rating
-	while user_input == -1:
+	while user_input is None:
 		user_input = input("Votre avis nous intéresse, donnez-nous une note entre 0 et 5 svp : ")
 		try:
 			user_input = int(user_input)
@@ -32,5 +32,5 @@ def thanks():
 			except Exception:
 				print("Impossible d'enregistrer la note.")
 		else:
-			user_input = -1
+			user_input = None
 			print("Veuillez entrer une note comprise entre 0 et 5.")
