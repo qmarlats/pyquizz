@@ -1,0 +1,554 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyquizz package &mdash; PyQuizz 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="PyQuizz 0.1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Welcome to PyQuizz’s documentation!" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyQuizz
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pyquizz package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-models-module">database.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-database-module">database.database module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-game.menus">game.menus module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-game.music">game.music module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-game.play">game.play module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-game.score">game.score module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-game.thanks">game.thanks module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-utils.csv">utils.csv module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-utils.numbers">utils.numbers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyquizz">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PyQuizz</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>pyquizz package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/pyquizz.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pyquizz-package">
+<h1>pyquizz package<a class="headerlink" href="#pyquizz-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="database-models-module">
+<h2>database.models module<a class="headerlink" href="#database-models-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-database.models"></span><span class="target" id="module-models"></span><dl class="class">
+<dt id="database.models.BaseModel">
+<em class="property">class </em><code class="descclassname">database.models.</code><code class="descname">BaseModel</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database/models.html#BaseModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.models.BaseModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">peewee.Model</span></code></p>
+<dl class="attribute">
+<dt id="database.models.BaseModel.DoesNotExist">
+<code class="descname">DoesNotExist</code><a class="headerlink" href="#database.models.BaseModel.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">BaseModelDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.BaseModel.id">
+<code class="descname">id</code><em class="property"> = &lt;peewee.PrimaryKeyField object&gt;</em><a class="headerlink" href="#database.models.BaseModel.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="database.models.Category">
+<em class="property">class </em><code class="descclassname">database.models.</code><code class="descname">Category</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database/models.html#Category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.models.Category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#database.models.BaseModel" title="database.models.BaseModel"><code class="xref py py-class docutils literal"><span class="pre">database.models.BaseModel</span></code></a></p>
+<dl class="attribute">
+<dt id="database.models.Category.DoesNotExist">
+<code class="descname">DoesNotExist</code><a class="headerlink" href="#database.models.Category.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">CategoryDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Category.id">
+<code class="descname">id</code><em class="property"> = &lt;peewee.PrimaryKeyField object&gt;</em><a class="headerlink" href="#database.models.Category.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Category.musics">
+<code class="descname">musics</code><a class="headerlink" href="#database.models.Category.musics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Back-reference to expose related objects as a <cite>SelectQuery</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Category.name">
+<code class="descname">name</code><em class="property"> = &lt;peewee.CharField object&gt;</em><a class="headerlink" href="#database.models.Category.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="database.models.Music">
+<em class="property">class </em><code class="descclassname">database.models.</code><code class="descname">Music</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database/models.html#Music"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.models.Music" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#database.models.BaseModel" title="database.models.BaseModel"><code class="xref py py-class docutils literal"><span class="pre">database.models.BaseModel</span></code></a></p>
+<dl class="attribute">
+<dt id="database.models.Music.DoesNotExist">
+<code class="descname">DoesNotExist</code><a class="headerlink" href="#database.models.Music.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">MusicDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Music.category">
+<code class="descname">category</code><em class="property"> = &lt;peewee.ForeignKeyField object&gt;</em><a class="headerlink" href="#database.models.Music.category" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Music.category_id">
+<code class="descname">category_id</code><em class="property"> = None</em><a class="headerlink" href="#database.models.Music.category_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Music.id">
+<code class="descname">id</code><em class="property"> = &lt;peewee.PrimaryKeyField object&gt;</em><a class="headerlink" href="#database.models.Music.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Music.name">
+<code class="descname">name</code><em class="property"> = &lt;peewee.CharField object&gt;</em><a class="headerlink" href="#database.models.Music.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="database.models.Rating">
+<em class="property">class </em><code class="descclassname">database.models.</code><code class="descname">Rating</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database/models.html#Rating"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.models.Rating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#database.models.BaseModel" title="database.models.BaseModel"><code class="xref py py-class docutils literal"><span class="pre">database.models.BaseModel</span></code></a></p>
+<dl class="attribute">
+<dt id="database.models.Rating.DoesNotExist">
+<code class="descname">DoesNotExist</code><a class="headerlink" href="#database.models.Rating.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">RatingDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Rating.created_at">
+<code class="descname">created_at</code><em class="property"> = &lt;peewee.DateTimeField object&gt;</em><a class="headerlink" href="#database.models.Rating.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Rating.id">
+<code class="descname">id</code><em class="property"> = &lt;peewee.PrimaryKeyField object&gt;</em><a class="headerlink" href="#database.models.Rating.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Rating.rating">
+<code class="descname">rating</code><em class="property"> = &lt;peewee.IntegerField object&gt;</em><a class="headerlink" href="#database.models.Rating.rating" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="database.models.Score">
+<em class="property">class </em><code class="descclassname">database.models.</code><code class="descname">Score</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database/models.html#Score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.models.Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#database.models.BaseModel" title="database.models.BaseModel"><code class="xref py py-class docutils literal"><span class="pre">database.models.BaseModel</span></code></a></p>
+<dl class="attribute">
+<dt id="database.models.Score.DoesNotExist">
+<code class="descname">DoesNotExist</code><a class="headerlink" href="#database.models.Score.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ScoreDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Score.age">
+<code class="descname">age</code><em class="property"> = &lt;peewee.IntegerField object&gt;</em><a class="headerlink" href="#database.models.Score.age" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Score.created_at">
+<code class="descname">created_at</code><em class="property"> = &lt;peewee.DateTimeField object&gt;</em><a class="headerlink" href="#database.models.Score.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Score.gender">
+<code class="descname">gender</code><em class="property"> = &lt;peewee.CharField object&gt;</em><a class="headerlink" href="#database.models.Score.gender" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Score.id">
+<code class="descname">id</code><em class="property"> = &lt;peewee.PrimaryKeyField object&gt;</em><a class="headerlink" href="#database.models.Score.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Score.name">
+<code class="descname">name</code><em class="property"> = &lt;peewee.CharField object&gt;</em><a class="headerlink" href="#database.models.Score.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="database.models.Score.score">
+<code class="descname">score</code><em class="property"> = &lt;peewee.IntegerField object&gt;</em><a class="headerlink" href="#database.models.Score.score" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="database-database-module">
+<h2>database.database module<a class="headerlink" href="#database-database-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-database.database"></span><span class="target" id="module-database"></span><dl class="class">
+<dt id="database.database.Database">
+<em class="property">class </em><code class="descclassname">database.database.</code><code class="descname">Database</code><span class="sig-paren">(</span><em>database</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database/database.html#Database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.database.Database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="database.database.Database.connect">
+<code class="descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database/database.html#Database.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.database.Database.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to the database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="database.database.Database.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>force=False</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database/database.html#Database.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.database.Database.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the database: create the file and the database tables.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> &#8211; force the creation of a database even if another with the same name already exists</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="database.database.Database.populate">
+<code class="descname">populate</code><span class="sig-paren">(</span><em>what</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database/database.html#Database.populate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.database.Database.populate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate database with CSV files</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-game.menus">
+<span id="game-menus-module"></span><h2>game.menus module<a class="headerlink" href="#module-game.menus" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-menus"></span><dl class="function">
+<dt id="game.menus.category">
+<code class="descclassname">game.menus.</code><code class="descname">category</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/menus.html#category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.menus.category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Menu to choose the music gnere we want to listen to.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="game.menus.main">
+<code class="descclassname">game.menus.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/menus.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.menus.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main menu; allows to play game, show scores, show rules or leave game.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="game.menus.show_rules">
+<code class="descclassname">game.menus.</code><code class="descname">show_rules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/menus.html#show_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.menus.show_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diplay rules saved in &#8220;rules&#8221; file.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="game.menus.show_scores">
+<code class="descclassname">game.menus.</code><code class="descname">show_scores</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/menus.html#show_scores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.menus.show_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display all scores of specified name</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-game.music">
+<span id="game-music-module"></span><h2>game.music module<a class="headerlink" href="#module-game.music" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-music"></span><dl class="class">
+<dt id="game.music.Music">
+<em class="property">class </em><code class="descclassname">game.music.</code><code class="descname">Music</code><span class="sig-paren">(</span><em>music</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/music.html#Music"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.music.Music" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="game.music.Music.is_exists">
+<code class="descname">is_exists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/music.html#Music.is_exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.music.Music.is_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if music file exists in music repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.music.Music.play">
+<code class="descname">play</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/music.html#Music.play"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.music.Music.play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play a music.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>KeyboardInterrupt</strong> &#8211; if user stops the music with his keyboard (by pressing Ctrl-C for example)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-game.play">
+<span id="game-play-module"></span><h2>game.play module<a class="headerlink" href="#module-game.play" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pyquizz"></span><dl class="function">
+<dt id="game.play.play">
+<code class="descclassname">game.play.</code><code class="descname">play</code><span class="sig-paren">(</span><em>category</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/play.html#play"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.play.play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play the blindtest itself, save and show score and ask a rating for the project.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-game.score">
+<span id="game-score-module"></span><h2>game.score module<a class="headerlink" href="#module-game.score" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-scores"></span><dl class="class">
+<dt id="game.score.Score">
+<em class="property">class </em><code class="descclassname">game.score.</code><code class="descname">Score</code><span class="sig-paren">(</span><em>score</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/score.html#Score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.score.Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="game.score.Score.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/score.html#Score.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.score.Score.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save user informations and score in database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.score.Score.show">
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/score.html#Score.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.score.Score.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show score with a message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.score.Score.update_user">
+<code class="descname">update_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/score.html#Score.update_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.score.Score.update_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update user informations. Must be executed at least once when a Score object is created.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-game.thanks">
+<span id="game-thanks-module"></span><h2>game.thanks module<a class="headerlink" href="#module-game.thanks" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-thanks"></span><dl class="function">
+<dt id="game.thanks.thanks">
+<code class="descclassname">game.thanks.</code><code class="descname">thanks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/game/thanks.html#thanks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#game.thanks.thanks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show thanks and ask an user rating.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-utils.csv">
+<span id="utils-csv-module"></span><h2>utils.csv module<a class="headerlink" href="#module-utils.csv" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-csv"></span><dl class="function">
+<dt id="utils.csv.get_csv_data">
+<code class="descclassname">utils.csv.</code><code class="descname">get_csv_data</code><span class="sig-paren">(</span><em>csv_file</em>, <em>n_of_files=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/csv.html#get_csv_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.csv.get_csv_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get data from CSV file(s).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>csv_file</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; CSV file name</li>
+<li><strong>n_of_files</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; number of CSV files (files format: %filename_%file_number)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">CSV data</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-utils.numbers">
+<span id="utils-numbers-module"></span><h2>utils.numbers module<a class="headerlink" href="#module-utils.numbers" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-numbers"></span><dl class="function">
+<dt id="utils.numbers.reduce_id">
+<code class="descclassname">utils.numbers.</code><code class="descname">reduce_id</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/numbers.html#reduce_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.numbers.reduce_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce ID to make it one digit number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>number</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; ID to reduce</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">reduced number</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyquizz">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyquizz" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to PyQuizz’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Quentin Marlats.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
