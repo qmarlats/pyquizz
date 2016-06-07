@@ -1,100 +1,109 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Pyquizz : Blind Test écrit en Python">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>PyQuizz</title>
+    <meta charset="UTF-8">
+    <title>PyQuizz by qmarlats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">PyQuizz</h1>
+      <h2 class="project-tagline">Blind Test écrit en Python</h2>
+      <a href="https://github.com/qmarlats/pyquizz" class="btn">View on GitHub</a>
+      <a href="https://github.com/qmarlats/pyquizz/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/qmarlats/pyquizz/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/qmarlats/pyquizz">View on GitHub</a>
+    <section class="main-content">
+      <p>Site du projet : <a href="https://qmarlats.github.com/pyquizz">https://qmarlats.github.com/pyquizz</a>
+Documentation : <a href="https://qmarlats.github.com/pyquizz/docs">https://qmarlats.github.com/pyquizz/docs</a></p>
 
-          <h1 id="project_title">PyQuizz</h1>
-          <h2 id="project_tagline">Blind Test écrit en Python</h2>
+<h1>
+<a id="dépendences" class="anchor" href="#d%C3%A9pendences" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dépendences</h1>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/qmarlats/pyquizz/archive/v1.0.2.zip">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/qmarlats/pyquizz/archive/v1.0.2.tar.gz">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        Version actuelle : 1.0.2. Retrouvez la documentation <a href="https://qmarlats.github.io/pyquizz/docs">ici</a>.
-        <h1>
-<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dépendences</h1>
-
-<p>PyQuizz utilise <code>simpleaudio</code> pour lire les musiques, il faut donc l'installer (<code>pip install simpleaudio</code>) ainsi que ses dépendences (<a href="http://simpleaudio.readthedocs.io/en/latest/installation.html">voir ici</a>) :</p>
+<p>PyQuizz utilise <code>simpleaudio</code> pour lire la musique, il faut installer ce module (<code>pip install simpleaudio</code> ou <code>pip3 install simpleaudio</code> si l'OS n'utilise pas Python3 par défaut) ainsi que ses dépendences (<a href="http://simpleaudio.readthedocs.io/en/latest/installation.html">voir ici</a>):</p>
 
 <ul>
-<li>Python3 et ses paquets "dev" (Python 3.5+ est requis)</li>
-<li>ALSA et ses paquets "dev"</li>
+<li>Python3 et ses paquets de développement</li>
+<li>ALSA et ses paquets de développement</li>
 </ul>
+
+<p>Le projet lui-même nécessite Python 3.5+ (il ne fonctionnera pas sur Python 3.4).</p>
 
 <h1>
 <a id="limitations" class="anchor" href="#limitations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Limitations</h1>
 
-<p>Les limitations sont les mêmes que <code>simpleaudio</code> (<a href="http://simpleaudio.readthedocs.io/en/latest/capabilities.html">voir ici</a>), PyQuizz ne peut donc que lire :</p>
+<p>Les limitations sont les même que <code>simpleaudio</code> (<a href="http://simpleaudio.readthedocs.io/en/latest/capabilities.html">voir ici</a>), PyQuizz ne peut donc que lire :</p>
 
 <ul>
-<li>fichiers WAV</li>
-<li>fichiers monos ou stéréos</li>
+<li>format WAV</li>
+<li>2 canneaux (mono ou stéréo)</li>
 <li>8, 11.025, 16, 22.05, 32, 44.1, 48, 88.2, 96, ou 192 kHz</li>
 </ul>
 
 <h1>
-<a id="installation-tutorial" class="anchor" href="#installation-tutorial" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
 
-<p>Installation sur une dérivée de Debian :</p>
+<p>Installation sur Debian et dérivées (attention, Python 3.5+ est requis) :</p>
 
 <ul>
-<li>Installer les dépendences de simpleaudio : <code>sudo apt install -y python3-dev libasound2-dev</code>
+<li>Installer les dépendences de <code>simpleaudio</code> : <code>sudo apt install -y python3-dev libasound2-dev</code>
 </li>
 <li>Installer <code>python3-pip</code>: <code>sudo apt install python3-pip</code>
 </li>
-<li>Il vaut mieux utiliser un environnement virtuel :
+<li>Il est recommandé d'utiliser un environnement virtuel :
 
 <ul>
-<li>Utiliser l'existant : <code>source env/bin/activate</code>
+<li>Utiliser celui existant déjà dans le projet : <code>source env/bin/activate</code>
 </li>
-<li>Si cela ne fonctionne pas, en créer un :
+<li>Si ce dernier ne fonctionne pas, en créer un :
 
 <ul>
-<li>Créer l'environnement : <code>virtualenv my_env</code></li>
-<li>L'utiliser : <code>source my_env/bin/activate</code></li>
-<li>Installer les modules Python requis : <code>pip3 install simpleaudio wave sphinx peewee</code></li>
+<li>Créer l'environnement : <code>virtualenv my_env</code>
+</li>
+<li>Entrer dedans : <code>source my_env/bin/activate</code>
+</li>
+<li>Installer les modules Python : <code>pip3 install simpleaudio wave sphinx peewee</code>
+</li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
+<p>Sur Arch Linux :</p>
+
+<ul>
+<li>Python est déjà installé dans une version compatible et avec les paquets de développement (si <code>base-devel</code> est installé)</li>
+<li>Paquets de développement de ALSA : <code>sudo pacman -S alsa-libs</code>
+</li>
+<li>L'environnement virtuel à utiliser est <code>env-3</code> au lieu de <code>env</code>
+</li>
+<li>Si la création d'un environnement est nécessaire, il faut utiliser <code>pip</code> et non <code>pip3</code>
+</li>
 </ul>
 
 <h1>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Utilisation</h1>
+<a id="utilisation" class="anchor" href="#utilisation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Utilisation</h1>
 
-<p>Entrer dans l'environnement virtuel : <code>source env/bin/activate</code>. Puis aller dans le dossier <code>pyquizz</code> et exécuter <code>pyquizz.py</code> <strong>avec Python3</strong> (<code>python3 pyquizz.py</code>), puis jouer.</p>
-      </section>
-    </div>
+<p>Il faut d'abord rentrer dans l'environnement virtuel. Dans le dossier racine de PyQuizz : <code>source env/bin/activate</code> pour les systèmes utilisant Python 2 par défaut (par exemple Debian et dérivées), <code>source env-3/bin/activate</code> pour les systèmes utilisant Python 3 par défaut (par exemple Arch Linux et dérivées).</p>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Pyquizz maintained by <a href="https://github.com/qmarlats">qmarlats</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+<p>Puis dans le dossier <code>pyquizz</code>, exécuter <code>pyquizz.py</code> <strong>avec Python3</strong> (<code>python3 pyquizz.py</code> ou <code>python pyquizz.py</code> si l'OS utilise Python 3 par défaut).</p>
+
+<p><strong>Bon amusement !</strong></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/qmarlats/pyquizz">PyQuizz</a> is maintained by <a href="https://github.com/qmarlats">qmarlats</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    
+    </section>
 
+  
   </body>
 </html>
