@@ -31,62 +31,58 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        Version actuelle : 1.0.1. Retrouvez la documentation <a href="https://qmarlats.github.io/pyquizz/docs">ici</a>.
+        Version actuelle : 1.0.2. Retrouvez la documentation <a href="https://qmarlats.github.io/pyquizz/docs">ici</a>.
         <h1>
-<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h1>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dépendences</h1>
 
-<p>PyQuizz uses <code>simpleaudio</code> to play music, so you need this package (<code>pip install simpleaudio</code>) and its dependencies (<a href="http://simpleaudio.readthedocs.io/en/latest/installation.html">see here</a>):</p>
+<p>PyQuizz utilise <code>simpleaudio</code> pour lire les musiques, il faut donc l'installer (<code>pip install simpleaudio</code>) ainsi que ses dépendences (<a href="http://simpleaudio.readthedocs.io/en/latest/installation.html">voir ici</a>) :</p>
 
 <ul>
-<li>Python3 and its development packages</li>
-<li>ALSA and its development packages</li>
+<li>Python3 et ses paquets "dev" (Python 3.5+ est requis)</li>
+<li>ALSA et ses paquets "dev"</li>
 </ul>
 
 <h1>
 <a id="limitations" class="anchor" href="#limitations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Limitations</h1>
 
-<p>Limitations are the same as <code>simpleaudio</code> (<a href="http://simpleaudio.readthedocs.io/en/latest/capabilities.html">see here</a>), so PyQuizz can only read:</p>
+<p>Les limitations sont les mêmes que <code>simpleaudio</code> (<a href="http://simpleaudio.readthedocs.io/en/latest/capabilities.html">see here</a>), PyQuizz ne peut donc que lire :</p>
 
 <ul>
-<li>WAV files</li>
-<li>1 or 2 channels (mono or stereo)</li>
-<li>8, 11.025, 16, 22.05, 32, 44.1, 48, 88.2, 96, or 192 kHz</li>
+<li>fichiers WAV</li>
+<li>fichiers monos ou stéréos</li>
+<li>8, 11.025, 16, 22.05, 32, 44.1, 48, 88.2, 96, ou 192 kHz</li>
 </ul>
 
 <h1>
-<a id="installation-tutorial" class="anchor" href="#installation-tutorial" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation tutorial</h1>
+<a id="installation-tutorial" class="anchor" href="#installation-tutorial" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
 
-<p>An example of installation on Debian based distros:</p>
-
-<ul>
-<li>Install simpleaudio dependencies : <code>sudo apt install -y python3-dev libasound2-dev</code>
-</li>
-<li>Install <code>python3-pip</code>: <code>sudo apt install python3-pip</code>
-</li>
-<li>You should use a virtualenv:
+<p>Installation sur une dérivée de Debian :</p>
 
 <ul>
-<li>Use the existing one: <code>source env/bin/activate</code>
+<li>Installer les dépendences de simpleaudio : <code>sudo apt install -y python3-dev libasound2-dev</code>
 </li>
-<li>If not working, create one:
+<li>Installer <code>python3-pip</code>: <code>sudo apt install python3-pip</code>
+</li>
+<li>Il vaut mieux utiliser un environnement virtuel :
 
 <ul>
-<li>Create the env: <code>virtualenv my_env</code>
+<li>Utiliser l'existant : <code>source env/bin/activate</code>
 </li>
+<li>Si cela ne fonctionne pas, en créer un :
+
+<ul>
+<li>Créer l'environnement : <code>virtualenv my_env</code></li>
+<li>L'utiliser : <code>source my_env/bin/activate</code></li>
+<li>Installer les modules Python requis : <code>pip3 install simpleaudio wave sphinx peewee</code></li>
 </ul>
 </li>
-<li>Use it: <code>source my_env/bin/activate</code>
-</li>
-<li>Install required packages: <code>pip install simpleaudio wave sphinx peewee</code>
-</li>
 </ul>
-</li>
 </ul>
 
 <h1>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Utilisation</h1>
 
-<p>In <code>pyquizz</code> folder, run <code>pyquizz.py</code> <strong>with Python3</strong> (<code>python3 pyquizz.py</code>), the play.</p>
+<p>Entrer dans l'environnement virtuel : <code>source env/bin/activate</code>. Puis aller dans le dossier <code>pyquizz</code> et exécuter <code>pyquizz.py</code> <strong>avec Python3</strong> (<code>python3 pyquizz.py</code>), puis jouer.</p>
       </section>
     </div>
 
