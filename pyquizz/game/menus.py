@@ -76,12 +76,11 @@ def show_scores():
             scores = None
 
             try:
-                scores = Score().select().where(name=user_input)
+                scores = Score().select().where(Score.name << [user_input])
             except Exception:
                 print("Impossible de récupérer les scores dans la base de données.")
-                scores = Score().select().where(Score.name << [user_input])
 
-            if scores is not None:
+            if scores.count() != 0:
                 for score in scores:
                     print("%s : %i" % (score.created_at.strftime("Le %d/%m/%Y à %H:%M:%S"), score.score))
             else:

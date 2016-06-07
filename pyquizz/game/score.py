@@ -65,7 +65,7 @@ class Score(object):
 		while user_input is None:
 			user_input = input("Votre nom : ")
 
-			if len(user_input) <= 30: # On ne sait jamais, peut-être que d'ici quelques années on vivera jusqu'à 150 ans
+			if len(user_input) >= 1 and len(user_input) <= 30:
 				self.name = user_input
 			else:
 				user_input = None
