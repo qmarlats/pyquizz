@@ -14,6 +14,7 @@ from database.models import Category
 from game.music import Music
 from game.thanks import thanks
 from game.score import Score
+from game import menus
 
 def play(category):
 	""" Play the blindtest itself, save and show score and ask a rating for the project."""
@@ -83,3 +84,6 @@ def play(category):
 
 		# Ask for a rating
 		thanks()
+
+		# Go back to main menu
+		menus.main()
